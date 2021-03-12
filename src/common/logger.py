@@ -65,25 +65,28 @@ class Tacotron2Logger(SummaryWriter):
         self.add_image(
             "alignment",
             plot_alignment_to_numpy(alignments[idx].data.cpu().numpy().T),
-            iteration)
+            iteration,
+            dataformats='HWC')
         self.add_image(
             "mel_target",
             plot_spectrogram_to_numpy(mel_targets[idx].data.cpu().numpy()),
-            iteration)
+            iteration,
+            dataformats='HWC')
         self.add_image(
             "mel_predicted",
             plot_spectrogram_to_numpy(mel_outputs[idx].data.cpu().numpy()),
-            iteration)
+            iteration,
+            dataformats='HWC')
         self.add_image(
             "mel_predicted_before_postnet",
             plot_spectrogram_to_numpy(
-                mel_outputs_before_postnet[idx].data.cpu().numpy()), iteration)
+                mel_outputs_before_postnet[idx].data.cpu().numpy()), iteration, dataformats='HWC')
         self.add_image(
             "gate",
             plot_gate_outputs_to_numpy(
                 gate_targets[idx].data.cpu().numpy(),
                 F.sigmoid(gate_outputs[idx]).data.cpu().numpy()),
-            iteration)
+            iteration, dataformats='HWC')
 
 
 class WaveglowLogger(SummaryWriter):
