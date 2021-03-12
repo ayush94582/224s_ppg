@@ -54,7 +54,7 @@ def create_hparams(**kwargs):
         "dist_url": "tcp://localhost:54321",
         "cudnn_enabled": True,
         "cudnn_benchmark": False,
-        "output_directory": None,  # Directory to save checkpoints.
+        "output_directory": "/home/ayushagarwal/fac-via-ppg/chkpts",  # Directory to save checkpoints.
         # Directory to save tensorboard logs. Just keep it like this.
         "log_directory": 'log',
         "checkpoint_path": '',  # Path to a checkpoint file.
@@ -68,10 +68,10 @@ def create_hparams(**kwargs):
         ################################
         # Passed as a txt file, see data/filelists/training-set.txt for an
         # example.
-        "training_files": '',
+        "training_files": '/home/ayushagarwal/fac-via-ppg/data/filelists/training.txt',
         # Passed as a txt file, see data/filelists/validation-set.txt for an
         # example.
-        "validation_files": '',
+        "validation_files": '/home/ayushagarwal/fac-via-ppg/data/filelists/validation.txt',
         "is_full_ppg": True,  # Whether to use the full PPG or not.
         "is_append_f0": False,  # Currently only effective at sentence level
         "ppg_subsampling_factor": 1,  # Sub-sample the ppg & acoustic sequence.
